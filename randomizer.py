@@ -1,23 +1,25 @@
 import random
 
-tr = True
-
 print("If you want to complete the randomizer, write stop")
 
 print("Enter range from: ")
 
-while tr == True:
-    diap1 = input()
-    if diap1.isdigit():
-        diap1 = int(diap1)
+while True:
+    rng1 = input()
+    if rng1.isdigit():
         print("Enter range to: ")
+        while True:
+            try:
+                rng2 = int(input())
 
-        diap2 = int(input())
+                print("result: ", random.randint(int(rng1), rng2))
 
-        print("result: ", random.randint(diap1,diap2))
-        
+                break
+            except ValueError:
+                print("Error!Enter a number!")
+
         print("Enter range from: ")
-    elif diap1 == "stop":
+    elif rng1 == "stop":
         break
     else:
         print("error!")
